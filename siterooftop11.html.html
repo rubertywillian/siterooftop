@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooftop 17 | Pool • Bar • Gastronomia em Boa Viagem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESETS E PALETA --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d1117;          
+            --card-bg: #141b24;          
+            --blue-brand: #0f82ac;       
+            --blue-light: #1693c1;       
+            --yellow-brand: #f4c430;     
+            --text-light: #ffffff;
+            --text-muted: #94a3b8;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--blue-brand);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-ring {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--yellow-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px;
+        }
+
+        .logo-inner {
+            width: 100%;
+            height: 100%;
+            background-color: var(--blue-brand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        .logo-text span {
+            color: var(--yellow-brand);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow-brand);
+        }
+
+        .btn-reserve {
+            background-color: var(--blue-brand);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            border: 2px solid var(--blue-brand);
+            transition: all 0.3s ease;
+        }
+
+        .btn-reserve:hover {
+            background-color: var(--blue-light);
+            border-color: var(--yellow-brand);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(13, 17, 23, 0.75), rgba(13, 17, 23, 1)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--yellow-brand);
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- DIFERENCIAIS --- */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 130, 172, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--blue-brand);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--yellow-brand);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--yellow-brand);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- DESTAQUES DA CASA --- */
+        .highlights-section {
+            padding: 5rem 2rem;
+            background-color: #0a0e13;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--blue-brand);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 3rem;
+        }
+
+        .highlights-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border-left: 4px solid var(--yellow-brand);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+        }
+
+        .highlight-item h4 {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        /* --- NOVA ÁREA DO CARDÁPIO COMPLETO (SISTEMA DE ABAS) --- */
+        .full-menu-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .menu-tabs input[type="radio"] {
+            display: none;
+        }
+
+        .menu-tab-label {
+            padding: 0.8rem 1.6rem;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(15, 130, 172, 0.3);
+            border-radius: 30px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-tabs input[type="radio"]:checked + .menu-tab-label {
+            background-color: var(--blue-brand);
+            border-color: var(--yellow-brand);
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        #tab-entradas:checked ~ #content-entradas,
+        #tab-parrilla:checked ~ #content-parrilla,
+        #tab-principais:checked ~ #content-principais,
+        #tab-drinks:checked ~ #content-drinks,
+        #tab-vinhos:checked ~ #content-vinhos {
+            display: grid;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .menu-card-price {
+            color: var(--yellow-brand);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .menu-card-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- CONTATO --- */
+        .info-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-box h3 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--yellow-brand);
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #070a0e;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-ring">
+                    <div class="logo-inner">17</div>
+                </div>
+                <div class="logo-text">ROOFTOP <span>17</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#destaques">Destaques</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#localizacao">Contato</a></li>
+            </ul>
+            <a href="https://wa.me/5581991887763" target="_blank" class="btn-reserve">Reservar Mesa</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Boa Viagem • Recife</div>
+            <h1 class="hero-title">Alta Gastronomia & Coquetelaria nas Alturas</h1>
+            <p class="hero-description">Experimente o encontro perfeito entre ótimos drinks, pratos refinados e a atmosfera única de Boa Viagem.</p>
+            <a href="https://wa.me/5581991887763" target="_blank" class="btn-reserve" style="padding: 1rem 2rem; font-size: 0.95rem;">Reservar via WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="features" id="sobre">
+        <div class="feature-card">
+            <h3>Gastronomia Refinada</h3>
+            <p>Menu idealizado pelo Chef Wellington Olimpio com entradas refinadas e parrilla nobre.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Pool & Drink Bar</h3>
+            <p>Carta exclusiva de vinhos, drinks autorais e opções refrescentes.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Experiência Exclusiva</h3>
+            <p>Ambiente sofisticado em Boa Viagem avaliado com nota 4,9 no Google.</p>
+        </div>
+    </section>
+
+    <!-- DESTAQUES DA CASA (MANTIDOS) -->
+    <section class="highlights-section" id="destaques">
+        <h2 class="section-title">Destaques da Casa</h2>
+        <p class="section-subtitle">Os pratos mais aclamados</p>
+
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <h4>Polvo Grelhado</h4>
+                <p>Tentáculos de polvo grelhados com risoto cremoso e toque suave de ervas.</p>
+            </div>
+            <div class="highlight-item">
+                <h4>Croquete de Costela</h4>
+                <p>Recheado com costela desfiada macia e bites de bacon em casca crocante.</p>
+            </div>
+            <div class="highlight-item">
+                <h4>Bolinhos de Peixe</h4>
+                <p>Acompanhamento frito e crocante, ideal para compartilhar durante o Happy Hour.</p>
+            </div>
+            <div class="highlight-item">
+                <h4>Capifruta Especial</h4>
+                <p>Mix de frutas frescas selecionadas com destilados premium.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA DO CARDÁPIO COMPLETO COM ABAS -->
+    <section class="full-menu-section" id="cardapio">
+        <h2 class="section-title">Nosso Cardápio</h2>
+        <p class="section-subtitle">By Chef Wellington Olimpio</p>
+
+        <div class="menu-tabs">
+            <input type="radio" id="tab-entradas" name="menu-tab" checked>
+            <label for="tab-entradas" class="menu-tab-label">Entradas e Petiscos</label>
+
+            <input type="radio" id="tab-parrilla" name="menu-tab">
+            <label for="tab-parrilla" class="menu-tab-label">Parrilla</label>
+
+            <input type="radio" id="tab-principais" name="menu-tab">
+            <label for="tab-principais" class="menu-tab-label">Pratos Principais</label>
+
+            <input type="radio" id="tab-drinks" name="menu-tab">
+            <label for="tab-drinks" class="menu-tab-label">Drinks Autorais</label>
+
+            <input type="radio" id="tab-vinhos" name="menu-tab">
+            <label for="tab-vinhos" class="menu-tab-label">Carta de Vinhos</label>
+
+            <!-- CONTEÚDO: ENTRADAS -->
+            <div class="tab-content" id="content-entradas">
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Camarão Chimichurri</span>
+                        <span class="menu-card-price">R$ 99</span>
+                    </div>
+                    <p class="menu-card-desc">Camarões preparados no chimichurri com alho.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Burrata Artesanal</span>
+                        <span class="menu-card-price">R$ 89</span>
+                    </div>
+                    <p class="menu-card-desc">Burrata cremosa servida com tomates assados na parrilla e pesto de manjericão.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Croquete de Costela (5 un)</span>
+                        <span class="menu-card-price">R$ 42</span>
+                    </div>
+                    <p class="menu-card-desc">Croquete recheado com costela desfiada e bites de bacon.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Empanadas (4 un)</span>
+                        <span class="menu-card-price">R$ 39</span>
+                    </div>
+                    <p class="menu-card-desc">Opções de Carne temperada, Frango com cream cheese ou Camarão.</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO: PARRILLA -->
+            <div class="tab-content" id="content-parrilla">
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Parrillada 17 (Serve 2 Pessoas)</span>
+                        <span class="menu-card-price">R$ 189</span>
+                    </div>
+                    <p class="menu-card-desc">Mix de carnes nobres: picanha, shoulder, linguiça artesanal com farofa crocante e vinagrete.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Prime Rib de Novilha</span>
+                        <span class="menu-card-price">R$ 210</span>
+                    </div>
+                    <p class="menu-card-desc">Corte especial preparado na grelha (Serve 2 pessoas). Acompanha 2 opções de acompanhamentos[cite: 2].</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Bife Ancho de Novilha</span>
+                        <span class="menu-card-price">R$ 99</span>
+                    </div>
+                    <p class="menu-card-desc">Corte nobre grelhado no ponto da casa, suculento e macio.</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO: PRINCIPAIS -->
+            <div class="tab-content" id="content-principais">
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Salmão Selado em Crosta</span>
+                        <span class="menu-card-price">R$ 99</span>
+                    </div>
+                    <p class="menu-card-desc">Crosta de amêndoas e parmesão servido com risoto cremoso.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Filé Au Poivre</span>
+                        <span class="menu-card-price">R$ 89</span>
+                    </div>
+                    <p class="menu-card-desc">Filé mignon grelhado com molho de pimentas e risoto de parmesão.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Arroz de Polvo Gratinado</span>
+                        <span class="menu-card-price">R$ 92</span>
+                    </div>
+                    <p class="menu-card-desc">Preparado em caldo rico de polvo com mussarela gratinada.</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO: DRINKS -->
+            <div class="tab-content" id="content-drinks">
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Céu e Mar</span>
+                        <span class="menu-card-price">R$ 35</span>
+                    </div>
+                    <p class="menu-card-desc">Gin, soda de cupuaçu, limão, espuma de gengibre e tuille de coral.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Lichia Sour</span>
+                        <span class="menu-card-price">R$ 35</span>
+                    </div>
+                    <p class="menu-card-desc">Tequila 1800 Gold, lichia, Aperol e limão.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Moscow Mule</span>
+                        <span class="menu-card-price">R$ 28</span>
+                    </div>
+                    <p class="menu-card-desc">Vodka, limão, gengibre e espuma cremosa de gengibre.</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO: VINHOS -->
+            <div class="tab-content" id="content-vinhos">
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Felino Malbec (Argentina)</span>
+                        <span class="menu-card-price">R$ 199</span>
+                    </div>
+                    <p class="menu-card-desc">Vinho tinto encorpado de Mendoza, altamente pontuado.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Viento Del Mar (Chile)</span>
+                        <span class="menu-card-price">R$ 85</span>
+                    </div>
+                    <p class="menu-card-desc">Disponível nas uvas Cabernet Sauvignon, Pinot Noir e Chardonnay.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-header">
+                        <span class="menu-card-title">Taça de Vinho da Casa</span>
+                        <span class="menu-card-price">R$ 25</span>
+                    </div>
+                    <p class="menu-card-desc">Opções de Tinto ou Branco selecionados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO E CONTATO -->
+    <section class="info-section" id="localizacao">
+        <div class="info-box">
+            <h3>Localização</h3>
+            <p>📍 R. dos Navegantes, 09 - Boa Viagem, Recife - PE</p>
+            <p>No coração do bairro de Boa Viagem.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Funcionamento & Contato</h3>
+            <p>⏰ Terça a Domingo a partir das 16:00</p>
+            <p>📞 WhatsApp: (81) 99188-7763</p>
+            <p>⭐ Nota 4,9 no Google</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Rooftop 17. Pool • Bar • Gastronomia. Recife - PE</p>
+    </footer>
+
+</body>
+</html>
